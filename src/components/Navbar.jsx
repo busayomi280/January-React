@@ -1,6 +1,7 @@
 import React from "react";
 
 const Navbar = () => {
+  
   return (
     <nav className="flex fixed gap-50  ml-30 items-center justify-around px-6 py-4 bg-[#060003] blur[2px] z-10 shadow-sm">
       <span className="flex items-center">
