@@ -40,9 +40,13 @@ export const TodoObject = () => {
   function handleTodolist() {
     setTodolist([
       ...todolist,
-      { id: todolist.lenght + 1, task: todo, completed: false },
+      { id: todolist.length + 1, task: todo, completed: false },
     ]);
     setTodo("")
+  }
+  function handleDeletetask(id) {
+    setTodolist(todolist.filter((item) => item.id !== id));
+
   }
   return (
     <div>
@@ -110,7 +114,9 @@ export const TodoObject = () => {
                           {item.task}
                         </p>
                       </div>
-                      <button className="flex text-red-500 border-2 border-red-500 p-2 rounded-lg">
+                      <button 
+                      onClick={()=>{handleDeletetask(item.id)}}
+                      className="flex text-red-500 border-2 border-red-500 p-2 rounded-lg">
                         <svg
                           className="h-6 w-6 text-red-500"
                           viewBox="0 0 24 24"
