@@ -1,9 +1,7 @@
-import { useCreateBlog } from "./useCreateBlog";
+import { useCreateBlog } from "./Hooks/useCreateBlog";
 
 const CreateBlog = () => {
-
-    const {loading, formData, handleChange, handleSubmit} = useCreateBlog()
-   
+  const { loading, formData, handleChange, handleSubmit } = useCreateBlog();
 
   return (
     <section className="min-h-screen bg-gray-50 px-4 py-12">
@@ -14,6 +12,7 @@ const CreateBlog = () => {
             Share insights, stories, and ideas with your audience
           </p>
         </div>
+        <input type="text" name="" id="" />
 
         <form
           onSubmit={handleSubmit}
@@ -30,7 +29,22 @@ const CreateBlog = () => {
                 value={formData.title}
                 onChange={handleChange}
                 placeholder="Enter blog title"
-                className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-indigo-500 focus:outline-none"
+                className="w-full text-black rounded-xl border border-gray-300 px-4 py-3 focus:border-indigo-500 focus:outline-none"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="mb-2 block text-sm font-medium text-gray-700">
+                Author
+              </label>
+              <input
+                type="text"
+                name="author"
+                value={formData.author || ''}
+                onChange={handleChange}
+                placeholder="Enter author name"
+                className="w-full text-black rounded-xl border border-gray-300 px-4 py-3 focus:border-indigo-500 focus:outline-none"
                 required
               />
             </div>
@@ -43,9 +57,9 @@ const CreateBlog = () => {
                 name="excerpt"
                 value={formData.excerpt}
                 onChange={handleChange}
-                rows="3"
+                rows={3}
                 placeholder="Short summary of the blog"
-                className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-indigo-500 focus:outline-none"
+                className="w-full text-black rounded-xl border border-gray-300 px-4 py-3 focus:border-indigo-500 focus:outline-none"
                 required
               />
             </div>
@@ -58,9 +72,9 @@ const CreateBlog = () => {
                 name="content"
                 value={formData.content}
                 onChange={handleChange}
-                rows="8"
+                rows={8}
                 placeholder="Write your blog content here..."
-                className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-indigo-500 focus:outline-none"
+                className="w-full text-black rounded-xl border border-gray-300 px-4 py-3 focus:border-indigo-500 focus:outline-none"
                 required
               />
             </div>
@@ -73,10 +87,10 @@ const CreateBlog = () => {
                 <input
                   type="text"
                   name="category"
-                  value={formData.category}
+                  value={formData.category || ''}
                   onChange={handleChange}
                   placeholder="e.g. Web Development"
-                  className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-indigo-500 focus:outline-none"
+                  className="w-full text-black rounded-xl border border-gray-300 px-4 py-3 focus:border-indigo-500 focus:outline-none"
                   required
                 />
               </div>
@@ -88,10 +102,10 @@ const CreateBlog = () => {
                 <input
                   type="text"
                   name="tags"
-                  value={formData.tags}
+                  value={formData.tags || ''}
                   onChange={handleChange}
                   placeholder="mern, react, node"
-                  className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-indigo-500 focus:outline-none"
+                  className="w-full text-black rounded-xl border border-gray-300 px-4 py-3 focus:border-indigo-500 focus:outline-none"
                 />
               </div>
             </div>
@@ -106,7 +120,7 @@ const CreateBlog = () => {
                 value={formData.coverImage}
                 onChange={handleChange}
                 placeholder="https://example.com/image.jpg"
-                className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-indigo-500 focus:outline-none"
+                className="w-full text-black rounded-xl border border-gray-300 px-4 py-3 focus:border-indigo-500 focus:outline-none"
               />
             </div>
 
@@ -135,7 +149,7 @@ const CreateBlog = () => {
                 type="submit"
                 className="rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700"
               >
-              {loading ? 'loading...' : "Create Blog"}
+                {loading ? 'Loading...' : "Create Blog"}
               </button>
             </div>
           </div>

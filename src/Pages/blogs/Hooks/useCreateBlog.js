@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 export const useCreateBlog = () =>{
      const router = useNavigate()
-  const [formData, setFormData] = useState({
+const [formData, setFormData] = useState({
     title: "",
+    author: "",      // <-- add this
     excerpt: "",
     content: "",
     category: "",
@@ -14,8 +15,8 @@ export const useCreateBlog = () =>{
     isPublished: false,
   });
 
-
   const [loading, setLoading] = useState(false)
+  
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -42,7 +43,7 @@ export const useCreateBlog = () =>{
 
       console.log("Blog created:", res.data);
       alert('Blog Created Succesfully')
-      router('/blogs')
+      router('/blog')
     } catch (error) {
       console.error(
         "Error creating blog:",

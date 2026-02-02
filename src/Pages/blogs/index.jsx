@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { useGetAllBlogs } from "./useGetAllBlogs";
+import { useGetAllBlogs } from "./Hooks/useGetAllBlogs";
+import { Link } from "react-router-dom";
 
 const Blogs = () => {
-  const { blogs, loading } = useGetAllBlogs();
   const navigate = useNavigate();
+  const { blogs, loading } = useGetAllBlogs();
 
+  console.log(blogs, 'meeeee')
   if (loading) {
     return (
       <p className="mt-3 text-center text-gray-600">
@@ -36,7 +38,7 @@ const Blogs = () => {
       )}
 
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {blogs.map((blog) => (
+        {blogs?.map((blog) => (
           <article
             key={blog._id}
             className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:shadow-lg"
@@ -63,7 +65,10 @@ const Blogs = () => {
               <p className="mb-4 text-gray-600 line-clamp-3">
                 {blog.excerpt}
               </p>
-
+              <Link to={`/blog/${blog._id}`} 
+              className="text-indigo-600 border py-1 px-2 mb-[10px] rounded hover:underline">
+                Read more
+              </Link> 
               <div className="flex items-center justify-between text-sm text-gray-500">
                 <span>By {blog.author}</span>
                 <span>

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Home = () => {
-      const [mobileOpen, setMobileOpen] = React.useState(false)
+    //   const [mobileOpen, setMobileOpen] = React.useState(false)
 
   return (
     <div>

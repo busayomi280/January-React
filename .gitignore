@@ -22,3 +22,69 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+
+# 
+Step 1: Verify Your Route is Set Up
+
+Check your backend routes file (usually blogRoutes.js or similar)
+Make sure you have a route like: router.get('/blogs/:id', getSingleBlog)
+Test the endpoint in Postman or your browser: http://localhost:3000/api/v1/blogs/SOME_BLOG_ID
+
+Step 2: Create the Custom Hook (useSingleBlog.js)
+Create a new file in your hooks folder with:
+
+Import useState, useEffect from React
+Import useParams from react-router-dom
+Import axios
+Create state for: blog, loading, error
+Get the id from URL params using useParams()
+In useEffect, fetch the blog data using the ID
+Make the API call to: http://localhost:3000/api/v1/blogs/${id}
+Handle the response (note: your backend returns {blog: {...}} so you'll need res.data.blog)
+Set loading to true before fetch, false after
+Handle any errors in a catch block
+Return { blog, loading, error } from the hook
+
+Step 3: Create the Single Blog Component (BlogDetails.jsx)
+
+Create a new component file
+Import and use your useSingleBlog hook
+Destructure { blog, loading, error }
+Show a loading state while loading is true
+Show an error message if error exists
+Once loaded, display the blog data:
+
+Cover image (if exists)
+Title
+Author
+Category
+Tags (map through the array)
+Content
+Published date (use createdAt or publishedAt)
+
+
+Add a "Back to Blogs" button using useNavigate
+
+Step 4: Set Up the Route
+
+Go to your main routing file (probably App.jsx)
+Add a new route: path should be /blogs/:id and element should be your BlogDetails component
+Make sure it's inside your <Routes> component
+
+Step 5: Update Your Blogs List Page
+
+In your blogs list component (where you display all blogs)
+Import Link from react-router-dom
+Wrap each blog card/item with <Link to={/blogs/${blog._id}}>
+Or add a "Read More" button that navigates to /blogs/${blog._id}
+
+Step 6: Test
+
+Run your application
+Go to your blogs list page
+Click on a blog
+You should be taken to /blogs/BLOG_ID and see the full blog details
+
+Ready for me to provide the actual code for any of these steps?

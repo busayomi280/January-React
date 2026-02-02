@@ -42,12 +42,15 @@ const Navbar = () => {
             <li>
               About
             </li></Link>
+           <Link to={"/blogs"}>
             <li>
-              <a href="#">Portfolio</a>
-            </li>
+              Blogs
+            </li></Link>
+          <Link to={"/cars"}>
             <li>
-              <a href="#">Pricing</a>
-            </li>
+              Cars
+            </li></Link>
+           
           </ul>
 
          <Link to={"/auth"}><button

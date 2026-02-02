@@ -1,5 +1,3 @@
-
-
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
@@ -12,7 +10,8 @@ export const useGetAllBlogs = ()=>{
     setloading(true)
     try {
       const res = await axios.get("http://localhost:3000/api/v1/blogs");
-      setBlogs(res.data.blogs);
+     console.log(res.data)
+      setBlogs(res.data);
     } catch (error) {
       console.log(error);
     }finally{
