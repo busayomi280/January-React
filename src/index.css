@@ -14,3 +14,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.input,
+textarea,
+select{
+  color: black;
+  width: 90%;
+  padding: 10px;
+  border-radius: 9px;
+  border: solid 1px #31242d ;
+}

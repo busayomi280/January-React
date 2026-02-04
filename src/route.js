@@ -12,29 +12,33 @@ import SingleBlog from "./Pages/blogs/SingleBlog";
 import Cars from "./Pages/Cars";
 import CreateCar from "./Pages/Cars/Createcar";
 import SingleCar from "./Pages/Cars/SingleCar";
+import EditCar from "./Pages/Cars/EditCar";
+import EditBlog from "./Pages/blogs/EditBlog";
 
 export const route = createBrowserRouter([
-    {
-        path: '/',
-        Component: LandingPageLayout,
-        children: [
-            {index: true, Component: Home},
-            {path: 'about', Component: About},
-            {path: 'blogs', Component: Blogs},
-            {path: 'datafetch', Component: DataFetch},
-            {path: 'create-blog', Component: CreateBlog},
-            {path: 'blog/:id', Component: SingleBlog},
-            {path: 'cars', Component: Cars},
-            {path: 'cars/create', Component: CreateCar},
-            {path: 'cars/:id', Component:SingleCar}
-        ]
-    },
-    {
-       path: '/auth',
-       Component: AuthCompo,
-       children: [
-        {index: true, Component: Register},
-        {path: 'signin', Component: Signin}
-       ]
-    }
-])
+  {
+    path: "/",
+    Component: LandingPageLayout,
+    children: [
+      { index: true, Component: Home },
+      { path: "about", Component: About },
+      { path: "blogs", Component: Blogs },
+      { path: "datafetch", Component: DataFetch },
+      { path: "create-blog", Component: CreateBlog },
+      { path: "blog/:id", Component: SingleBlog },
+      { path: "blogs/:id/edit", Component: EditBlog },
+      { path: "cars", Component: Cars },
+      { path: "cars/create", Component: CreateCar },
+      { path: "cars/:id", Component: SingleCar },
+      { path: "cars/:id/edit", Component: EditCar },
+    ],
+  },
+  {
+    path: "/auth",
+    Component: AuthCompo,
+    children: [
+      { index: true, Component: Register },
+      { path: "signin", Component: Signin },
+    ],
+  },
+]);

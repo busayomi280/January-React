@@ -6,7 +6,7 @@ export const useCreateBlog = () =>{
      const router = useNavigate()
 const [formData, setFormData] = useState({
     title: "",
-    author: "",      // <-- add this
+    author: "",     
     excerpt: "",
     content: "",
     category: "",

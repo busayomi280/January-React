@@ -6,7 +6,6 @@ const Blogs = () => {
   const navigate = useNavigate();
   const { blogs, loading } = useGetAllBlogs();
 
-  console.log(blogs, 'meeeee')
   if (loading) {
     return (
       <p className="mt-3 text-center text-gray-600">

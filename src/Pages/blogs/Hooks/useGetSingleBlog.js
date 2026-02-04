@@ -3,11 +3,14 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 export const useGetSingleBlog = () => {
+    const id = useParams().id;
+
     const [blog, setBlog] = useState(null);
     const [loading, setloading] = useState(false);
     const [error, setError] = useState(null);
 
-    async function getSingleBlog(id) {
+
+    async function getSingleBlog() {
       setloading(true)
 
       try {
@@ -22,10 +25,8 @@ export const useGetSingleBlog = () => {
           setloading(false)
       }
     }
-    const id = useParams().id;
     useEffect(() => {
-    
-      getSingleBlog(id);
+      getSingleBlog();
     }, [id]);
   
     return{

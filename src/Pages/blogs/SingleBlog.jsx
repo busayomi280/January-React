@@ -2,6 +2,7 @@ import React from 'react';
 import { useGetSingleBlog } from './Hooks/useGetSingleBlog';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Calendar, User, Tag, Clock } from 'lucide-react';
+import DeleteBlog from './DeleteBlog';
 
 const SingleBlog = () => {
   const { blog, loading, error } = useGetSingleBlog();
@@ -181,6 +182,7 @@ const SingleBlog = () => {
             Edit Blog
           </button>
         </div>
+        <DeleteBlog/>
       </article>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { useGetAllcars } from "./useGetAllCars";
+import { useGetAllcars } from "./Hooks/useGetAllCars";
 import { Link } from "react-router-dom";    
 
 const Cars = () => {

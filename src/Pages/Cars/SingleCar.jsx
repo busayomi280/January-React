@@ -1,6 +1,8 @@
 import React from "react";
-import { useGetSingleCar } from "./useGetSingleCar";
+import { useGetSingleCar } from "./Hooks/useGetSingleCar";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import DeleteCar from "./DeleteCar";
 
 const SingleCar = () => {
   const { car, loading } = useGetSingleCar();
@@ -79,13 +81,19 @@ const SingleCar = () => {
                 ₦{Number(car.price).toLocaleString()}
               </p>
             </div>
-
-            <button
+                <button
               disabled={!car.isAvailable}
               className="mt-8 w-full rounded-xl bg-indigo-600 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-gray-400"
             >
               {car.isAvailable ? "Book This Car" : "Not Available"}
             </button>
+            <div className="flex gap-3 justify-center">
+              
+            <Link to={`/cars/${car._id}/edit`}>
+            <button className="mt-8 w-[200px] rounded-xl bg-indigo-600 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:bg-gray-400"
+           >Update car</button></Link>
+            <span className="w-200px"><DeleteCar /></span>
+            </div>
           </div>
         </div>
       </div>
